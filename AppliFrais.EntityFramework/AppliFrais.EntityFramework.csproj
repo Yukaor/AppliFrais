@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{57C4DB22-8B39-4C40-ACA6-2E20730D2267}</ProjectGuid>
+    <ProjectGuid>{E195F79A-6050-4FDD-B201-16C4E4A0A10D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>AppliFrais.EntityFramework</RootNamespace>
@@ -50,13 +50,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BddContext.cs" />
-    <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\Metier.cs" />
     <Compile Include="Models\Etat.cs" />
     <Compile Include="Models\FicheFrais.cs" />
     <Compile Include="Models\NoteFrais.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\IBddContext.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -1,0 +1,24 @@
+﻿@model AppliFrais.ViewsModel.IndexComptableViewModel
+
+<div class="row">
+    <h1>Liste des commerciaux</h1>
+    <p>Retrouvez la liste de tous les commerciaux.</p>
+</div>
+<div class="row">
+
+    @foreach (var commercial in Model.commerciaux)
+    {
+        <div class="col-sm-3">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                    @Html.ActionLink(@commercial.Nom+" "+@commercial.Prenom, "FichesFrais", "Comptable", new { Id = @commercial.Id }, new { @style = "color:white;" })
+                    </div>
+                    <div class="panel-body">
+                        @commercial.ListeFichesFrais.Count() fiches de frais
+                        <br />
+                        @commercial.ListeFichesFrais.Where(Fiche => Fiche.Valide == false).ToList().Count en attente
+                    </div>
+                </div>
+        </div>
+    }
+</div>

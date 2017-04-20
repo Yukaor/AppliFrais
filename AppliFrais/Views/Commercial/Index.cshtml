@@ -1,0 +1,83 @@
+﻿@model AppliFrais.ViewsModel.IndexCommercialViewModel
+
+<div class="row">
+    <h1>Liste des fiches de frais</h1>
+    <p>Retrouvez la liste de toutes vos fiches de frais.</p>
+</div>
+<div class="row">
+
+@foreach (var ficheFrais in Model.fichesFrais)
+{
+    string mois = null;
+
+        switch (@ficheFrais.Date.Month)
+        {
+            case 1:
+                mois = "Janvier";
+                break;
+            case 2:
+                mois = "Février";
+                break;
+            case 3:
+                mois = "Mars";
+                break;
+            case 4:
+                mois = "Avril";
+                break;
+            case 5:
+                mois = "Mai";
+                break;
+            case 6:
+                mois = "Juin";
+                break;
+            case 7:
+                mois = "Juillet";
+                break;
+            case 8:
+                mois = "Août";
+                break;
+            case 9:
+                mois = "Septembre";
+                break;
+            case 10:
+                mois = "Octobre";
+                break;
+            case 11:
+                mois = "Novembre";
+                break;
+            case 12:
+                mois = "Décembre";
+                break;
+        }
+
+    <div class="col-sm-3">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                @Html.ActionLink("Fiche de " + mois + " " + ficheFrais.Date.Year, "NotesFrais", "Commercial", new { ficheFraisId = ficheFrais.Id }, new { @style = "color:white;" })
+            </div>
+            <div class="panel-body">
+                @if (ficheFrais.ListeNotesFrais == null )
+                {
+                    @("0 note de frais");
+                    <br />
+                    @("0 refusée");
+                }
+                else
+                {
+                    @(ficheFrais.ListeNotesFrais.Count()+" note(s) de frais");
+                    <br />
+                    @(ficheFrais.ListeNotesFrais.Where(NoteFrais => NoteFrais.Etat.Label == "Refusé").ToList().Count+" refusée(s)")
+                }
+            </div>
+        </div>
+    </div>
+}
+
+</div>
+<div class="row" style="margin-top:20px">
+    <div style="text-align:right; margin-right:15px">
+        <button class="btn btn-primary">
+            @Html.ActionLink("Ajouter", "AddFicheFrais", "Commercial", null, new { @style = "color:white;" })
+        </button>
+    </div>
+</div>

@@ -1,15 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace AppliFrais.EntityFramework.Models
 {
-    /// <summary>
-    /// Class User
-    /// </summary>
     public class User
     {
         [Key]
@@ -23,7 +21,9 @@ namespace AppliFrais.EntityFramework.Models
 
         public string Password { get; set; }
 
-        public Metier Metier { get; set; }
+        public string Metier { get; set; }
+
+        public virtual List<FicheFrais> ListeFichesFrais { get; set; }
 
     }
 }

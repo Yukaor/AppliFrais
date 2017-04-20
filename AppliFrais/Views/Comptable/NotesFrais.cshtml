@@ -1,0 +1,54 @@
+﻿@model AppliFrais.ViewsModel.NotesFraisComptableViewModel
+
+
+<div class="row">
+    <h1>Liste des notes de frais</h1>
+    <p>Retrouvez les notes de frais de ce mois.</p>
+</div>
+<div class="row">
+    <table class="table text-center">
+        <thead>
+            <tr>
+                <th class="text-center">Nom</th>
+                <th class="text-center">Etablissement</th>
+                <th class="text-center">Ville</th>
+                <th class="text-center">Date</th>
+                <th class="text-center">Prix</th>
+                <th class="text-center">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var noteFrais in Model.ficheFrais.ListeNotesFrais.OrderBy(noteFrais => noteFrais.Date).ToList())
+            {
+                string nomClass = null;
+
+                if (noteFrais.Etat.Label == "Accepté")
+                {
+                    nomClass = "success";
+                }
+                if (noteFrais.Etat.Label == "Refusé")
+                {
+                    nomClass = "danger";
+                }
+                <tr class="@nomClass" >
+                    <td>@noteFrais.Title</td>
+                    <td>@noteFrais.Society</td>
+                    <td>@noteFrais.City</td>
+                    <td>@noteFrais.Date</td>
+                    <td>@noteFrais.Prix</td>
+                    <td>
+                        @Html.ActionLink("Valider", "NotesFrais", "Comptable", new { ficheFraisId = Model.ficheFrais.Id, noteFraisId = noteFrais.Id, etatId = 2 }, new { @style = "color:blue;" }) | 
+                        @Html.ActionLink("Refuser", "NotesFrais", "Comptable", new { ficheFraisId = Model.ficheFrais.Id, noteFraisId = noteFrais.Id, etatId = 3 }, new { @style = "color:blue;" })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<div class="row" style="margin-top:20px">
+    <div style="text-align:right;">
+        <button class="btn btn-primary">
+            @Html.ActionLink("Accepter la fiche", "NotesFrais", "Comptable", new { ficheFraisId = Model.ficheFrais.Id, noteFraisId = -2, etatId = 2 }, new { @style = "color:white;" })
+        </button>
+    </div>
+</div>

@@ -1,5 +1,4 @@
-﻿using AppliFrais.EntityFramework;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -17,10 +16,6 @@ namespace AppliFrais
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-
-            using (var db = new BddContext())
-            {
-            }
         }
     }
 }

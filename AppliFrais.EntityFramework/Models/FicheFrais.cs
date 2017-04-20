@@ -12,10 +12,10 @@ namespace AppliFrais.EntityFramework.Models
         [Key]
         public int Id { get; set; }
 
-        public DateTimeOffset Date { get; set; }
+        public DateTime Date { get; set; }
 
         public bool Valide { get; set; }
 
-        public List<NoteFrais> ListeNotesFrais { get; set; }
+        public virtual List<NoteFrais> ListeNotesFrais { get; set; }
     }
 }

@@ -12,10 +12,16 @@ namespace AppliFrais.EntityFramework.Models
         [Key]
         public int Id { get; set; }
 
-        public string Label { get; set; }
+        public string Title { get; set; }
+
+        public string Society { get; set; }
+
+        public string City { get; set; }
+
+        public DateTime Date { get; set; }
 
         public decimal Prix { get; set; }
 
-        public Etat Etat { get; set; }
+        public virtual Etat Etat { get; set; }
     }
 }

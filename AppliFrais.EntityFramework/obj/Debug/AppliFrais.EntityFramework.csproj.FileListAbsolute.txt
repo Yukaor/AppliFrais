@@ -1,0 +1,12 @@
+C:\Users\yuks\Projets\AppliFrais\AppliFrais.EntityFramework\bin\Debug\AppliFrais.EntityFramework.dll.config
+C:\Users\yuks\Projets\AppliFrais\AppliFrais.EntityFramework\bin\Debug\AppliFrais.EntityFramework.dll
+C:\Users\yuks\Projets\AppliFrais\AppliFrais.EntityFramework\bin\Debug\AppliFrais.EntityFramework.pdb
+C:\Users\yuks\Projets\AppliFrais\AppliFrais.EntityFramework\bin\Debug\EntityFramework.dll
+C:\Users\yuks\Projets\AppliFrais\AppliFrais.EntityFramework\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\yuks\Projets\AppliFrais\AppliFrais.EntityFramework\bin\Debug\EntityFramework.xml
+C:\Users\yuks\Projets\AppliFrais\AppliFrais.EntityFramework\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\yuks\Projets\AppliFrais\AppliFrais.EntityFramework\bin\Debug\fr\EntityFramework.resources.dll
+C:\Users\yuks\Projets\AppliFrais\AppliFrais.EntityFramework\bin\Debug\fr\EntityFramework.SqlServer.resources.dll
+C:\Users\yuks\Projets\AppliFrais\AppliFrais.EntityFramework\obj\Debug\AppliFrais.EntityFramework.csprojResolveAssemblyReference.cache
+C:\Users\yuks\Projets\AppliFrais\AppliFrais.EntityFramework\obj\Debug\AppliFrais.EntityFramework.dll
+C:\Users\yuks\Projets\AppliFrais\AppliFrais.EntityFramework\obj\Debug\AppliFrais.EntityFramework.pdb

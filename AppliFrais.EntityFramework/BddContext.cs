@@ -1,4 +1,5 @@
 ﻿using AppliFrais.EntityFramework.Models;
+using AppliFrais.EntityFramework.Services;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -12,7 +13,7 @@ namespace AppliFrais.EntityFramework
     /// <summary>
     /// Classe qui contient les modèles
     /// </summary>
-    public class BddContext : DbContext
+    public class BddContext : DbContext, IBddContext
     {
         public BddContext() : base("name=BddAppliFrais")
         {
@@ -24,13 +25,17 @@ namespace AppliFrais.EntityFramework
 
         public DbSet<User> Users { get; set; }
 
-        public DbSet<Metier> Metiers { get; set; }
+        // public DbSet<Metier> Metiers { get; set; }
 
         public DbSet<FicheFrais> FichesFrais { get; set; }
 
         public DbSet<NoteFrais> NotesFrais { get; set; }
 
         public DbSet<Etat> Etats { get; set; }
-        
+
+        public void MySaveChanges()
+        {
+            SaveChanges();
+        }
     }
 }

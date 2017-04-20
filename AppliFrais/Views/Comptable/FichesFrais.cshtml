@@ -1,0 +1,67 @@
+﻿@model AppliFrais.ViewsModel.FichesFraisComptableViewModel
+
+
+<div class="row">
+    <h1>Liste des fiches de frais</h1>
+    <p>Retrouvez la liste de toutes vos fiches de frais du commercial.</p>
+</div>
+<div class="row">
+
+    @foreach (var ficheFrais in Model.fichesFrais)
+    {
+        <div class="col-sm-3">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    @{ string mois = null;}
+
+                    @switch (@ficheFrais.Date.Month)
+                    {
+                        case 1:
+                            mois = "Janvier";
+                            break;
+                        case 2:
+                            mois = "Février";
+                            break;
+                        case 3:
+                            mois = "Mars";
+                            break;
+                        case 4:
+                            mois = "Avril";
+                            break;
+                        case 5:
+                            mois = "Mai";
+                            break;
+                        case 6:
+                            mois = "Juin";
+                            break;
+                        case 7:
+                            mois = "Juillet";
+                            break;
+                        case 8:
+                            mois = "Août";
+                            break;
+                        case 9:
+                            mois = "Septembre";
+                            break;
+                        case 10:
+                            mois = "Octobre";
+                            break;
+                        case 11:
+                            mois = "Novembre";
+                            break;
+                        case 12:
+                            mois = "Décembre";
+                            break;
+                    }
+                    @Html.ActionLink("Fiche de " + mois + ficheFrais.Date.Year, "NotesFrais", "Comptable", new { ficheFraisId = ficheFrais.Id, noteFraisId = -1, etatId = -1 }, new { @style = "color:white;" })
+                </div>
+                <div class="panel-body">
+                    @ficheFrais.ListeNotesFrais.Count note(s) de frais
+                    <br />
+                    @ficheFrais.ListeNotesFrais.Where(NoteFrais => NoteFrais.Etat.Label == "En attente").ToList().Count en attente(s)
+                </div>
+            </div>
+        </div>
+    }
+
+</div>
